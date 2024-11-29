@@ -13,3 +13,4 @@ public with sharing class SimpleClass {
     }
 }
 //Added comment 
+//Added the CodeCov credentials
