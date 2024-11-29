@@ -1,0 +1,22 @@
+name: Validate to Developer1 Sandbox
+run-name: ${{ github.actor }} is running the Github Actions 🚀
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+    branches:
+      - developer1
+    paths:
+      - 'force-app/**'
+
+jobs:
+  build-and-deploy: 
+    name: Validate Developer1
+    uses: "./.github/workflows/template.yml"
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    with:
+      environment: developer1
+    secrets: inherit

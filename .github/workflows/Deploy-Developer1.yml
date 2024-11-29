@@ -1,0 +1,22 @@
+name: Deploy to Developer1 Sandbox
+run-name: ${{ github.actor }} is running the Github Actions 🚀
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - developer1
+    paths:
+      - 'force-app/**'
+
+jobs:
+  build-and-deploy: 
+    name: Deploy Developer1
+    uses: "./.github/workflows/template.yml"
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    with:
+      environment: developer1
+    secrets: inherit
