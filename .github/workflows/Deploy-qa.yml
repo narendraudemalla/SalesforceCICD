@@ -1,0 +1,22 @@
+name: Deploying the changes to QA Sandbox
+run-name: ${{ github.actor }} is running the Github Actions 🚀
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - qa
+    paths:
+      - 'force-app/**'
+
+jobs:
+  build-and-deploy: 
+    name: Deployin the changes to QA
+    uses: "./.github/workflows/template-qa.yml"
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    with:
+      environment: qa
+    secrets: inherit
