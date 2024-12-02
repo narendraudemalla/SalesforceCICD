@@ -140,12 +140,12 @@ jobs:
       - name: Run the Apex Test Classes
         run: |
           #sf apex run test --target-org developer1 --test-level RunLocalTests --code-coverage --result-format human -d ./ --wait 10
-          sf apex run test --target-org salesforce-integration-org --test-level RunSpecifiedTests --tests ${{ env.apex_classes }} --code-coverage --result-format human -d ./coverage --wait 10
+          sf apex run test --target-org developer1 --test-level RunSpecifiedTests --tests ${{ env.apex_classes }} --code-coverage --result-format human -d ./coverage --wait 10
 
       ## Check the code coverage -- START ad
-      #- name: Run Apex Coverage Check
-        #run: |
-          #python CODE_COVERAGE.py
+      - name: Run Apex Coverage Check
+        run: |
+          python CODE_COVERAGE.py
       ## Check the code coverage -- END
 
       ## Scan the code using SonarCloud
