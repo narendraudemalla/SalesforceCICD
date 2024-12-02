@@ -41,5 +41,5 @@ def calculate_coverage(file_path):
 # Main method that runs automatically
 if __name__ == "__main__":
     #coverage/test-result-codecoverage.json
-    file_path = './test-result-codecoverage.json'  # Replace with your actual file path
+    file_path = 'test-result-codecoverage.json'  # Replace with your actual file path
     calculate_coverage(file_path)
