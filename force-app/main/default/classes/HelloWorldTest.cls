@@ -46,5 +46,3 @@ public class HelloWorldTest {
         }
     }
 }
-
-//addthe c

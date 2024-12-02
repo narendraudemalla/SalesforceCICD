@@ -1,0 +1,22 @@
+name: Validating changes against QA  Sandbox
+run-name: ${{ github.actor }} is running the Github Actions 🚀
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+    branches:
+      - qa
+    paths:
+      - 'force-app/**'
+
+jobs:
+  build-and-deploy: 
+    name: Validating changes against QA sandbox
+    uses: "./.github/workflows/template-qa.yml"
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    with:
+      environment: qa
+    secrets: inherit
