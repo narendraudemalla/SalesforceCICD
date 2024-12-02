@@ -13,5 +13,3 @@ public with sharing class SimpleClass {
     }
 }
 //2-12-2024
-//2-12-2024
-//as
