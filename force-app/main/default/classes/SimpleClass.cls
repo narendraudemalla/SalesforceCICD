@@ -12,6 +12,4 @@ public with sharing class SimpleClass {
         return 'Hello, ' + simpleProperty + '!';
     }
 }
-//Added comment 
-//Added the CodeCov credentials
-//2-12-2024  comment
+//2-12-2024
