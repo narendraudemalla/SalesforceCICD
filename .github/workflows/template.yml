@@ -40,7 +40,7 @@ jobs:
       PR_BODY: ${{ github.event.pull_request.body }}
       NULL_VAR: ''
       TEST_LEVEL: RunSpecifiedTests
-      APEX_CLASS_RUN: SimpleClassTest
+      APEX_CLASS_RUN: 
 
     steps:
       - name: "Print the Information"
@@ -139,8 +139,9 @@ jobs:
 
       - name: Run the Apex Test Classes
         run: |
-          #sf apex run test --target-org developer1 --test-level RunLocalTests --code-coverage --result-format human -d ./ --wait 10
-          sf apex run test --target-org developer1 --test-level RunSpecifiedTests --tests ${{ env.apex_classes }} --code-coverage --result-format human -d ./coverage --wait 10
+          sf apex run test --target-org developer1 --test-level RunLocalTests --code-coverage --result-format human -d ./ --wait 10
+          #sf apex run test --target-org developer1 --code-coverage --result-format human -d ./coverage --wait 10
+          #sf apex run test --target-org developer1 --test-level RunSpecifiedTests --tests ${{ env.apex_classes }} --code-coverage --result-format human -d ./ --wait 10
 
       ## Check the code coverage -- START ad
       - name: Run Apex Coverage Check
