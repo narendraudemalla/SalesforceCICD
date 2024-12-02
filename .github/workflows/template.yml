@@ -141,7 +141,7 @@ jobs:
         run: |
           sf apex run test --target-org developer1 --test-level RunLocalTests --code-coverage --result-format human -d ./ --wait 10
 
-      ## Check the code coverage -- START
+      ## Check the code coverage -- START ad
       - name: Run Apex Coverage Check
         run: |
           python CODE_COVERAGE.py
