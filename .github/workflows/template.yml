@@ -236,7 +236,7 @@ jobs:
 
           if grep -q '<types>' delta/package/package.xml ; then
             echo "---- validating added and modified metadata ----"
-            sf project deploy validate --source-dir delta/force-app --target-org developer1 --test-level RunSpecifiedTests --tests ${{ env.apex_classes }} --wait 10
+            sf project deploy validate --source-dir delta/force-app --target-org developer1 --test-level RunSpecifiedTests --tests ${{ env.apex_classes }} --wait 10 --ignore-connflicts
           else
             echo "---- No changes to validate ----"
           fi
@@ -285,7 +285,7 @@ jobs:
           
           if grep -q '<types>' delta/package/package.xml ; then
             echo "---- Deploying added and modified metadata ----"
-            sf project deploy start --source-dir delta/force-app --target-org developer1 --test-level RunSpecifiedTests --tests ${{ env.apex_classes }} --wait 10
+            sf project deploy start --source-dir delta/force-app --target-org developer1 --test-level RunSpecifiedTests --tests ${{ env.apex_classes }} --wait 10  --ignore-conflicts
           else
             echo "---- No changes to deploy ----"
           fi
