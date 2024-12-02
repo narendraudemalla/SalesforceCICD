@@ -137,9 +137,10 @@ jobs:
           echo ${{vars.ORG_URL}}
           sf org login jwt --username ${{ secrets.SF_USERNAME }} --jwt-key-file ${{ secrets.JWT_KEY_FILE }} --client-id ${{ secrets.SF_CLIENT_ID }} --set-default --alias developer1 --instance-url ${{ secrets.SF_INSTANCE_URL }}
 
-      #- name: Run the Apex Test Classes
-        #run: |
+      - name: Run the Apex Test Classes
+        run: |
           #sf apex run test --target-org developer1 --test-level RunLocalTests --code-coverage --result-format human -d ./ --wait 10
+          sf apex run test --target-org salesforce-integration-org --test-level RunSpecifiedTests --tests ${{ env.apex_classes }} --code-coverage --result-format human -d ./coverage --wait 10
 
       ## Check the code coverage -- START ad
       #- name: Run Apex Coverage Check
