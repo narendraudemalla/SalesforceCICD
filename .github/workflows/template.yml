@@ -168,7 +168,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-            args: "-Dsonar.apex.coverage.reportPath=reports/test-result-codecoverage.json"
+            args: "-Dsonar.apex.coverage.reportPath=test-result-codecoverage.json"
     
           ## Check the Quality Gate using SonarCloud API for the pull request
       #- name: Check the Quality Gate using SonarCloud API

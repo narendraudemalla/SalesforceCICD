@@ -12,13 +12,10 @@ public class HelloWorld {
      *
      */
     public static void sayHello() {
-        // Use LoggingLevel to categorize the debug statement
+        // Use LoggingLevel to categorize the debug statements
         integer i = 5;
         if (i == 5) {
             i++;
         }  
     }
 }
-//added Narendra changes
-//added Narendra1
-//added the change
