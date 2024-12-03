@@ -168,7 +168,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-            args: "-Dsonar.apex.coverage.reportPath=reports/test-result-codecoverage.json"
+            args: "-Dsonar.apex.coverage.reportPath=test-result-codecoverage.json"
     
           ## Check the Quality Gate using SonarCloud API for the pull request
       #- name: Check the Quality Gate using SonarCloud API
@@ -236,7 +236,7 @@ jobs:
 
           if grep -q '<types>' delta/package/package.xml ; then
             echo "---- validating added and modified metadata ----"
-            sf project deploy validate --source-dir delta/force-app --target-org developer1 --test-level RunSpecifiedTests --tests ${{ env.apex_classes }} --wait 10
+            sf project deploy validate --source-dir delta/force-app --target-org developer1 --test-level RunSpecifiedTests --tests ${{ env.apex_classes }} --wait 10 
           else
             echo "---- No changes to validate ----"
           fi
@@ -255,7 +255,7 @@ jobs:
             echo "---- No changes to validate ----"
           fi
 
-      - name: Validate Post Destructive Changes
+      - name: Deploy Post Destructive Changes
         if: ${{ github.event_name == 'pull_request' && github.event.action != 'closed' }}
         run: |
           if grep -q '<types>' destructiveChanges/postDestructiveChanges.xml ; then
@@ -285,7 +285,7 @@ jobs:
           
           if grep -q '<types>' delta/package/package.xml ; then
             echo "---- Deploying added and modified metadata ----"
-            sf project deploy start --source-dir delta/force-app --target-org developer1 --test-level RunSpecifiedTests --tests ${{ env.apex_classes }} --wait 10
+            sf project deploy start --source-dir delta/force-app --target-org developer1 --test-level RunSpecifiedTests --tests ${{ env.apex_classes }} --wait 10  --ignore-conflicts
           else
             echo "---- No changes to deploy ----"
           fi
