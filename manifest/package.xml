@@ -4,13 +4,5 @@
 		<members>Test__c.Testfield__c</members>
 		<name>CustomField</name>
 	</types>
-	<types>
-		<members>Test__c</members>
-		<name>CustomObject</name>
-	</types>
-	<types>
-		<members>Test__c-Test Layout</members>
-		<name>Layout</name>
-	</types>
 	<version>62.0</version>
 </Package>
