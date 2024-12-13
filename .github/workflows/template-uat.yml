@@ -250,7 +250,7 @@ jobs:
 
           if grep -q '<types>' delta/package/package.xml ; then
             echo "---- validating added and modified metadata ----"
-            sf project deploy validate --source-dir delta/force-app --target-org uat --wait 10
+            sf project deploy start --source-dir delta/force-app --target-org uat --wait 10 --dry-run
           else
             echo "---- No changes to validate ----"
           fi
