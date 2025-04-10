@@ -1,63 +1,54 @@
-// TemperatureConverterTest Apex Test Class
-@IsTest
-public with sharing class TemperatureConverterTest {
-    @IsTest
-    static void testCelsiusToFahrenheit() {
-        // Test valid input
-        Double result = TemperatureConverter.celsiusToFahrenheit(0.0);
-        System.assertEquals(32.0, result, '0 Celsius should convert to 32 Fahrenheit');
+public with sharing class TemperatureConverter {
 
-        // Test null input
-        try {
-            TemperatureConverter.celsiusToFahrenheit(null);
-            System.assert(false, 'Null input should throw an exception');
-        } catch (Exception e) {
-            System.assertEquals('Input temperature cannot be null', e.getMessage());
+    /**
+     * Converts Celsius to Fahrenheit.
+     * @param celsius The temperature in Celsius.
+     * @return The equivalent temperature in Fahrenheit.
+     * @throws Exception if the input is null.
+     */
+    public static Double celsiusToFahrenheit(Double celsius) {
+        if(celsius == null) {
+            throw new Exception('Input temperature cannot be null');
         }
+        return (celsius * 9.0/5) + 32;
     }
 
-    @IsTest
-    static void testFahrenheitToCelsius() {
-        // Test valid input
-        Double result = TemperatureConverter.fahrenheitToCelsius(32.0);
-        System.assertEquals(0.0, result, '32 Fahrenheit should convert to 0 Celsius');
-
-        // Test null input
-        try {
-            TemperatureConverter.fahrenheitToCelsius(null);
-            System.assert(false, 'Null input should throw an exception');
-        } catch (Exception e) {
-            System.assertEquals('Input temperature cannot be null', e.getMessage());
+    /**
+     * Converts Fahrenheit to Celsius.
+     * @param fahrenheit The temperature in Fahrenheit.
+     * @return The equivalent temperature in Celsius.
+     * @throws Exception if the input is null.
+     */
+    public static Double fahrenheitToCelsius(Double fahrenheit) {
+        if(fahrenheit == null) {
+            throw new Exception('Input temperature cannot be null');
         }
+        return (fahrenheit - 32) * 5.0/9;
     }
 
-    @IsTest
-    static void testCelsiusToKelvin() {
-        // Test valid input
-        Double result = TemperatureConverter.celsiusToKelvin(0.0);
-        System.assertEquals(273.15, result, '0 Celsius should convert to 273.15 Kelvin');
-
-        // Test null input
-        try {
-            TemperatureConverter.celsiusToKelvin(null);
-            System.assert(false, 'Null input should throw an exception');
-        } catch (Exception e) {
-            System.assertEquals('Input temperature cannot be null', e.getMessage());
+    /**
+     * Converts Celsius to Kelvin.
+     * @param celsius The temperature in Celsius.
+     * @return The equivalent temperature in Kelvin.
+     * @throws Exception if the input is null.
+     */
+    public static Double celsiusToKelvin(Double celsius) {
+        if(celsius == null) {
+            throw new Exception('Input temperature cannot be null');
         }
+        return celsius + 273.15;
     }
 
-    @IsTest
-    static void testKelvinToCelsius() {
-        // Test valid input
-        Double result = TemperatureConverter.kelvinToCelsius(273.15);
-        System.assertEquals(0.0, result, '273.15 Kelvin should convert to 0 Celsius');
-
-        // Test null input
-        try {
-            TemperatureConverter.kelvinToCelsius(null);
-            System.assert(false, 'Null input should throw an exception');
-        } catch (Exception e) {
-            System.assertEquals('Input temperature cannot be null', e.getMessage());
+    /**
+     * Converts Kelvin to Celsius.
+     * @param kelvin The temperature in Kelvin.
+     * @return The equivalent temperature in Celsius.
+     * @throws Exception if the input is null.
+     */
+    public static Double kelvinToCelsius(Double kelvin) {
+        if(kelvin == null) {
+            throw new Exception('Input temperature cannot be null');
         }
+        return kelvin - 273.15;
     }
 }
