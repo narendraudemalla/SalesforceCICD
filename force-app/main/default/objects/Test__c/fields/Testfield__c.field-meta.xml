@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Testfield__c</fullName>
+    <description>This is a test field</description>
     <externalId>false</externalId>
     <label>Testfield</label>
     <length>35</length>
